@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+
+    
+    <h2> Calculate triangle area by three sides using Heron's formula</h2>
+    <label for="sideA">Side A:</label>
+    <input type="number" id="sideA">
+    <label for="sideB">Side B:</label>
+    <input type="number" id="sideB">
+    <label for="sideC">Side C:</label>
+    <input type="number" id="sideC">
+    <button onclick="calculateHeron()">Calculate Area</button>
+    <p id="resultTask1"></p>
+
+    
+    <h2> Calculate triangle area by two sides and angle between them</h2>
+    <label for="sideX">Side X:</label>
+    <input type="number" id="sideX">
+    <label for="sideY">Side Y:</label>
+    <input type="number" id="sideY">
+    <label for="angleZ">Angle Z (in degrees):</label>
+    <input type="number" id="angleZ">
+    <button onclick="calculateTriangleBySidesAndAngle()">Calculate Area</button>
+    <p id="resultTask2"></p>
+
+  
+    <h2> Calculate triangle area by base and height</h2>
+    <label for="base">Base:</label>
+    <input type="number" id="base">
+    <label for="height">Height:</label>
+    <input type="number" id="height">
+    <button onclick="calculateTriangleByBaseAndHeight()">Calculate Area</button>
+    <p id="resultTask3"></p>
+
+   
+    <h2> Calculate triangle area by side and altitude</h2>
+    <label for="sideD">Side D:</label>
+    <input type="number" id="sideD">
+    <label for="altitude">Altitude:</label>
+    <input type="number" id="altitude">
+    <button onclick="calculateTriangleBySideAndAltitude()">Calculate Area</button>
+    <p id="resultTask4"></p>
+
+    
+    <h2> Calculate triangle area by three sides and circumradius</h2>
+    
+
+    
+    <h2> Check if a number is a palindrome</h2>
+    <label for="palindromeInput">Enter a number:</label>
+    <input type="number" id="palindromeInput">
+    <button onclick="checkPalindrome()">Check Palindrome</button>
+    <p id="resultTask6"></p>
+
+   
+    <h2> Check if two words are anagrams</h2>
+    <label for="word1">Word 1:</label>
+    <input type="text" id="word1">
+    <label for="word2">Word 2:</label>
+    <input type="text" id="word2">
+    <button onclick="checkAnagram()">Check Anagram</button>
+    <p id="resultTask7"></p>
+
+    
+    <h2> Fibonacci sequence calculator</h2>
+    <label for="fibonacciInput">Enter the position:</label>
+    <input type="number" id="fibonacciInput">
+    <button onclick="calculateFibonacci()">Get Fibonacci Number</button>
+    <p id="resultTask8"></p>
+
+    
+    <h2> Check if a number belongs to the Fibonacci sequence</h2>
+    <label for="fibonacciCheck">Enter a number:</label>
+    <input type="number" id="fibonacciCheck">
+    <button onclick="checkFibonacci()">Check Fibonacci</button>
+    <p id="resultTask9"></p>
+
+    <script>
+        
+        function calculateHeron() {
+            const sideA = parseFloat(document.getElementById('sideA').value);
+            const sideB = parseFloat(document.getElementById('sideB').value);
+            const sideC = parseFloat(document.getElementById('sideC').value);
+
+            const s = (sideA + sideB + sideC) / 2;
+            const area = Math.sqrt(s * (s - sideA) * (s - sideB) * (s - sideC));
+
+            document.getElementById('resultTask1').innerText = `Triangle Area: ${area.toFixed(2)}`;
+        }
+
+        
+        function calculateTriangleBySidesAndAngle() {
+            const sideX = parseFloat(document.getElementById('sideX').value);
+            const sideY = parseFloat(document.getElementById('sideY').value);
+            const angleZ = parseFloat(document.getElementById('angleZ').value);
+
+           
+            const radians = (angleZ * Math.PI) / 180;
+            const area = (sideX * sideY * Math.sin(radians)) / 2;
+
+            document.getElementById('resultTask2').innerText = `Triangle Area: ${area.toFixed(2)}`;
+        }
+
+      
+        function calculateTriangleByBaseAndHeight() {
+            const base = parseFloat(document.getElementById('base').value);
+            const height = parseFloat(document.getElementById('height').value);
+
+            const area = (base * height) / 2;
+
+            document.getElementById('resultTask3').innerText = `Triangle Area: ${area.toFixed(2)}`;
+        }
+
+     
+        function calculateTriangleBySideAndAltitude() {
+            const sideD = parseFloat(document.getElementById('sideD').value);
+            const altitude = parseFloat(document.getElementById('altitude').value);
+
+            const area = (sideD * altitude) / 2;
+
+            document.getElementById('resultTask4').innerText = `Triangle Area: ${area.toFixed(2)}`;
+        }
+
+        
+
+        
+        function checkPalindrome() {
+            const inputNumber = document.getElementById('palindromeInput').value;
+            const reversedNumber = parseFloat(inputNumber.toString().split('').reverse().join(''));
+
+            const isPalindrome = parseFloat(inputNumber) === reversedNumber;
+
+            document.getElementById('resultTask6').innerText = `Is Palindrome: ${isPalindrome}`;
+        }
+
+       
+        function checkAnagram() {
+            const word1 = document.getElementById('word1').value.toLowerCase().split('').sort().join('');
+            const word2 = document.getElementById('word2').value.toLowerCase().split('').sort().join('');
+
+            const isAnagram = word1 === word2;
+
+            document.getElementById('resultTask7').innerText = isAnagram ? 'Anagram' : 'Not an Anagram';
+        }
+
+     
+        function calculateFibonacci() {
+            const position = parseInt(document.getElementById('fibonacciInput').value);
+            let fib = [1, 1];
+
+            for (let i = 2; i <= position; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+
+            document.getElementById('resultTask8').innerText = `Fibonacci Number at position ${position}: ${fib[position]}`;
+        }
+
+     
+        function checkFibonacci() {
+            const numberToCheck = parseInt(document.getElementById('fibonacciCheck').value);
+            let a = 0, b = 1, nextTerm;
+
+            while (a <= numberToCheck) {
+                if (a === numberToCheck) {
+                    document.getElementById('resultTask9').innerText = `${numberToCheck} is a Fibonacci number.`;
+                    return;
+                }
+                nextTerm = a + b;
+                a = b;
+                b = nextTerm;
+            }
+
+            document.getElementById('resultTask9').innerText = `${numberToCheck} is not a Fibonacci number.`;
+        }
+    </script>
+</body>
+</html>

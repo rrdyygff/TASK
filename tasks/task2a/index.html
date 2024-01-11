@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task2a</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #9FAFCC;
+        }
+
+        h1, h5 {
+            margin: 1%;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            width: 45%; 
+            margin-top: 0; 
+            position: relative;
+        }
+
+        .image-container img {
+            width: 48%;
+            height: auto;
+            margin: 0; 
+            padding: 0;
+            border: 0; 
+        }
+
+        .green-rectangle {
+            width: 2%; 
+            height: auto;
+            background-color: green;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #centered-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: green;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>A Trusted Reputation Build Over Time</h1>
+    <h5>Sample text. Click to select the text box. Click again or double click to start editing the text</h5>
+
+    <div class="image-container">
+        <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-james-wheeler-417074.jpg&fm=jpg" alt="Sample Image 1">
+        <div class="green-rectangle"></div>
+        <div id="centered-text">
+            <p>We Care About Nature</p>
+        </div>
+        <img src="https://media.cntraveller.com/photos/611bf0b8f6bd8f17556db5e4/master/pass/gettyimages-1146431497.jpg" alt="Image 2">
+    </div>
+
+    <div class="image-container">
+        <div class="green-rectangle"></div>
+        <img src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/Zugpsitze_mountain.jpg?crop=0%2C176%2C3008%2C1654&wid=4000&hei=2200&scl=0.752" alt="Image 3">
+        <img src="https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2023/06/nature-1686808887.jpg" alt="Image 4">
+        <div class="green-rectangle"></div>
+    </div>
+</body>
+</html>
+
+
